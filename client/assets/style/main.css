@@ -1,0 +1,149 @@
+/*setup*/
+img {max-width: 100%;}
+
+
+
+/*global*/
+.wrapper {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	display: block;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+}
+.vid {
+	width: 98vw;
+	height: 98vh;
+}
+.result {display: none;}
+.result.active {display: block;}
+
+
+
+/*index*/
+.index .start {
+	position: absolute;
+    bottom: 5%;
+    display: block;
+    margin-left: 40%;
+}
+.index .start img {width: 70%;}
+
+
+
+
+/*play*/
+.play {
+	background: url(../pic/sky.png);
+	background-size: cover;
+	position: relative;
+}
+.play .water,
+.play .bridge  {
+	position: absolute;
+	bottom: 0;
+	width: 100vw;
+	text-align: center;
+	z-index: 2;
+}
+.play .water {
+	width: 195%;
+	text-align: left;
+}
+.play .water img {
+    height: 100vh;
+	animation: sea-slide 10s linear infinite alternate;
+}
+.play .bridge img {
+	margin-bottom: -5%;
+}
+.play .cloud {
+	background: url(../pic/cloud.png) no-repeat;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 0;
+	animation: sky-slide 12s linear infinite alternate;
+}
+.play .island {
+	width: 62%;
+	text-align: center;
+	margin: 10% auto 0;
+	position: relative;
+	z-index: 1;
+}
+
+
+.game {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+}
+.cha {
+	height: 300px;
+    width: 228px;
+    position: absolute;
+    z-index: 4;
+    background-size: cover;
+}
+.ani {
+    animation: run .25s steps(2,end) infinite;
+}
+.cha-red {
+	background: url(../pic/r.png) no-repeat;
+    background-size: cover;
+    left: 39%;
+    bottom: 40%;
+    transform: scale(.5);
+}
+.cha-blue {
+	background: url(../pic/b.png) no-repeat;
+    background-size: cover;
+    left: 45%;
+    bottom: 40%;
+    transform: scale(.5);
+}
+.cha-dragon {
+	background: url(../pic/d.png) no-repeat;
+    background-size: cover;
+    left: 42%;
+    bottom: 45%;
+    transform: scale(.7);
+}
+
+
+@-webkit-keyframes sky-slide {
+	0% {background-position: 0 bottom;}
+	100% {background-position: 100% bottom;}
+}
+@keyframes sky-slide {
+	0% {background-position: 0 bottom;}
+	100% {background-position: 100% bottom;}
+}
+@-webkit-keyframes sea-slide {
+	0% {margin-left: 0;}
+	100% {margin-left: -30%;}
+}
+@keyframes sea-slide {
+	0% {margin-left: 0;}
+	100% {margin-left: -30%;}
+}
+@-webkit-keyframes run {
+	0% {background-position: 0 0}
+	100% {background-position: 200% 0;}
+}
+@keyframes run {
+	0% {background-position: 0 0}
+	100% {background-position: 200% 0;}
+}
+
+
+
+audio { visibility: hidden; height: 0; }
+
+
+
