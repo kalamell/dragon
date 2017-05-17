@@ -20,6 +20,7 @@
 
 
 	</div>
+	<div class="result"></div>
 </div>
 
 <script src="assets/script/jquery-3.2.1.min.js"></script>
@@ -27,6 +28,7 @@
 <script src="assets/script/shake.js"></script>
 
 <script>
+var socket = io.connect('http://139.59.114.231:8888');
 var side = '';
 var myShakeEvent = new Shake({
   threshold: 1, // optional shake strength threshold
@@ -44,11 +46,13 @@ function shakeEventDidOccur () {
   if (side == 'right') {
       socket.emit('shake', 'right', 1);
   }
+
   
 }
 
+myShakeEvent.start();
 
-var socket = io.connect('http://139.59.114.231:8888');
+
 
 </script>
 </body>

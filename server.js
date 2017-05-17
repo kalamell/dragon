@@ -44,8 +44,9 @@ var totalUsers = {
 
 io.sockets.on('connection', function (socket) {
 
+	console.log('connection');
 
-	socket.on('shake', function(room, side, score) {
+	socket.on('shake', function(side, score) {
 	    if (side=='left') {
 	        totalUsers.left = parseInt(totalUsers.left) + 1;
 	    }
@@ -55,12 +56,8 @@ io.sockets.on('connection', function (socket) {
 		socket.emit('totalUsers', totalUsers);
 	    socket.broadcast.emit('totalUsers', totalUsers);
 
-	    console.log(totalUsers);
-	    
+	    console.log(totalUsers); 
 	});
-
-
-
 
 });
 
