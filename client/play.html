@@ -38,5 +38,20 @@
 	</audio>
 	<script src="assets/script/jquery-3.2.1.min.js"></script>
 	<script src="assets/script/main.js"></script>
+
+	<script src="/socket.io/socket.io.js"></script>
+
+	<script>
+		
+
+	var socket = io.connect('http://139.59.114.231:8888');
+	socket.on('totalUsers', function(totalUsers) {
+		console.log(totalUsers);
+	});
+
+	</script>
+
+
+
 </body>
 </html>

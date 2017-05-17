@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Control</title>
+	<link rel="stylesheet" href="assets/style/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-6">
+			<a href="#" class="btn btn-lg btn-info"> L E F T</a>
+		</div>
+
+
+		<div class="col-md-6">
+			<a href="#" class="btn btn-lg btn-info"> R I G H T</a>
+		</div>
+
+
+	</div>
+</div>
+
+<script src="assets/script/jquery-3.2.1.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="assets/script/shake.js"></script>
+
+<script>
+var side = '';
+var myShakeEvent = new Shake({
+  threshold: 1, // optional shake strength threshold
+  timeout: 300 // optional, determines the frequency of event generation
+});
+
+window.addEventListener('shake', shakeEventDidOccur, false);
+
+//function to call when shake occurs
+function shakeEventDidOccur () {
+  //alert(state);
+  if (side == 'left') {
+      socket.emit('shake', 'left', 1);
+  } 
+  if (side == 'right') {
+      socket.emit('shake', 'right', 1);
+  }
+  
+}
+
+
+var socket = io.connect('http://139.59.114.231:8888');
+
+</script>
+</body>
+</html>
