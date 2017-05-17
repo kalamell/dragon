@@ -36,8 +36,8 @@ app.get('/control', function(req, res) {
 
 
 var totalUsers = {
-  left: 0,
-  right: 0,
+  left: 0.1,
+  right: 0.1,
 }
 
 
@@ -47,18 +47,18 @@ io.sockets.on('connection', function (socket) {
 	console.log('connection');
 
 	socket.on('reset', function() {
-		totalUsers.left = 0;
-		totalUsers.right= 0;
+		totalUsers.left = 0.1;
+		totalUsers.right= 0.1;
 		socket.emit('totalUsers', totalUsers);
 	    socket.broadcast.emit('totalUsers', totalUsers);
 	});
 
 	socket.on('shake', function(side, score) {
 	    if (side=='left') {
-	        totalUsers.left = parseInt(totalUsers.left) + 0.1;
+	        totalUsers.left = parseFloat(totalUsers.left) + 0.1;
 	    }
 	     if (side=='right') {
-	      totalUsers.right = parseInt(totalUsers.right) + 0.1;
+	      totalUsers.right = parseFloat(totalUsers.right) + 0.1;
 	    }
 		socket.emit('totalUsers', totalUsers);
 	    socket.broadcast.emit('totalUsers', totalUsers);
