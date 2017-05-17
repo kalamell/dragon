@@ -10,12 +10,12 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-6">
-			<a href="#" class="btn btn-lg btn-info"> L E F T</a>
+			<a href="#" id="left" class="btn btn-lg btn-info"> L E F T</a>
 		</div>
 
 
 		<div class="col-md-6">
-			<a href="#" class="btn btn-lg btn-info"> R I G H T</a>
+			<a href="#"  id="right" class="btn btn-lg btn-info"> R I G H T</a>
 		</div>
 
 
@@ -28,8 +28,23 @@
 <script src="assets/script/shake.js"></script>
 
 <script>
+$(function() {
+	$("#left").on('click', function() {
+		side = 'left';
+
+		$('.btn').hide();
+
+		$('.result').html('<h1>มังกรมาแล้ว วิ่งหนีเร็วววววว</h1>');
+	});
+
+	$("#right").on('click', function() {
+		side = 'right';
+		$('.btn').hide();
+		$('.result').html('<h1>มังกรมาแล้ว วิ่งหนีเร็วววววว</h1>');
+	})
+})
 var socket = io.connect();
-var side = 'left';
+var side = '';
 var myShakeEvent = new Shake({
   threshold: 1, // optional shake strength threshold
   timeout: 300 // optional, determines the frequency of event generation
