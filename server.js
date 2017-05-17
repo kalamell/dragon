@@ -46,6 +46,13 @@ io.sockets.on('connection', function (socket) {
 
 	console.log('connection');
 
+	socket.on('reset', function() {
+		totalUsers.left = 0;
+		totalUsers.right= 0;
+		socket.emit('totalUsers', totalUsers);
+	    socket.broadcast.emit('totalUsers', totalUsers);
+	});
+
 	socket.on('shake', function(side, score) {
 	    if (side=='left') {
 	        totalUsers.left = parseInt(totalUsers.left) + 1;
