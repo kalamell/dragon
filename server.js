@@ -5,7 +5,6 @@ app.use(express.static(__dirname + '/client'));
 
 app.get('/',function(req,res){
   res.sendFile(path.join(__dirname+'/client/index.html'));
-  //__dirname : It will resolve to your project folder.
 });
 
 app.get('/play',function(req,res){
@@ -18,6 +17,18 @@ app.get('/blue',function(req,res){
 
 app.get('/blue',function(req,res){
   res.sendFile(path.join(__dirname+'/client/red.html'));
+});
+
+
+// สำหรับ คนเล่น
+app.get('/mobile', function(req, res) {
+	res.sendFile(path.join(__dirname) + '/client/mobile.html'));
+});
+
+
+// สำหรับ control หลังบ้าน
+app.get('/control', function(req, res) {
+	res.sendFile(path.join(__dirname) + '/client/control.html'));
 });
 
 app.listen(3000);
