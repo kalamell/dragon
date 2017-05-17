@@ -18,7 +18,7 @@ app.get('/blue',function(req,res){
   res.sendFile(path.join(__dirname+'/client/blue.html'));
 });
 
-app.get('/blue',function(req,res){
+app.get('/red',function(req,res){
   res.sendFile(path.join(__dirname+'/client/red.html'));
 });
 
@@ -55,10 +55,10 @@ io.sockets.on('connection', function (socket) {
 
 	socket.on('shake', function(side, score) {
 	    if (side=='left') {
-	        totalUsers.left = parseInt(totalUsers.left) + 1;
+	        totalUsers.left = parseInt(totalUsers.left) + 0.1;
 	    }
 	     if (side=='right') {
-	      totalUsers.right = parseInt(totalUsers.right) + 1;
+	      totalUsers.right = parseInt(totalUsers.right) + 0.1;
 	    }
 		socket.emit('totalUsers', totalUsers);
 	    socket.broadcast.emit('totalUsers', totalUsers);
